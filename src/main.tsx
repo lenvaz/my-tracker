@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     clientId={import.meta.env.VITE_AUTH0_CLIENTID}
     authorizationParams={{
       // TODO: Need to write a constants file in future to hold such constants
-      redirect_uri: `${window.location.origin}/my-tracker/`,
+      redirect_uri: `${window.location.origin}${import.meta.env.BASE_URL}`,
     }}
   >
     <React.StrictMode>
