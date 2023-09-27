@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { REDIRECT_URL } from "../../App.const";
 
 const LogoutButton = () => {
   const { isAuthenticated, logout, isLoading } = useAuth0();
@@ -6,9 +7,7 @@ const LogoutButton = () => {
   return isAuthenticated ? (
     <button
       disabled={isLoading}
-      onClick={() =>
-        logout({ logoutParams: { returnTo: window.location.origin } })
-      }
+      onClick={() => logout({ logoutParams: { returnTo: REDIRECT_URL } })}
     >
       Log Out
     </button>
