@@ -1,5 +1,4 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { REDIRECT_URL } from "../../App.const";
 
 const LogoutButton = () => {
   const { isAuthenticated, logout, isLoading } = useAuth0();
@@ -7,7 +6,14 @@ const LogoutButton = () => {
   return isAuthenticated ? (
     <button
       disabled={isLoading}
-      onClick={() => logout({ logoutParams: { returnTo: REDIRECT_URL } })}
+      onClick={() =>
+        logout({
+          logoutParams: {
+            // TODO: Need to write a constants file in future to hold such constants
+            returnTo: `${window.location.origin}/my-tracker/`,
+          },
+        })
+      }
     >
       Log Out
     </button>
